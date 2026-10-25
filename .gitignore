@@ -1,0 +1,34 @@
+# macOS / Xcode
+.DS_Store
+*.xcuserstate
+xcuserdata/
+DerivedData/
+*.xcodeproj/
+*.xcworkspace/
+build/
+*.app
+*.dylib
+*.ipa
+
+# Swift
+.swiftpm/
+Package.resolved
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+
+# Secrets / local
+*.pem
+*.key
+.env
+ms-version.json
+~/Documents/RaptorUI/
