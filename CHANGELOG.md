@@ -5,10 +5,11 @@ All notable changes to this project will be documented in this file. Format foll
 ## [Unreleased]
 
 ### Added
-- One-liner Mac install: `installer/bootstrap.sh` — clones the public repo into `~/raptor-rebuild` and runs the safe installer. Usable as `cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/main/installer/bootstrap.sh | bash </dev/tty`, with `--dry-run` / `--force` / `--dir` / `--ref` options. Documented in `installer/README.md` and `docs/modules/02-installer.md`.
+- One-liner Mac install: `installer/bootstrap.sh` — clones the public repo into `~/raptor-rebuild` and runs the safe installer. Usable as `cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/v1.1.0/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh && bash /tmp/raptor-bootstrap.sh`, with `--dry-run` / `--force` / `--dir` / `--ref` options. Documented in `installer/README.md` and `docs/modules/02-installer.md`.
 
 ### Fixed
 - `installer/bootstrap.sh`: removed all bash array use — expanding an empty array under `set -u` aborts on macOS's stock bash 3.2 with `args[@]: unbound variable` (line 104), while newer bash tolerates it, so Linux tests had passed. Flags are now passed with explicit branches; the script is written for bash 3.2 throughout.
+- Install one-liner: replaced `curl ... | bash </dev/tty` with download-then-run — the pipe form runs on macOS (zsh) but leaves bash waiting for terminal input after the script finishes, so the terminal looks stuck. If that happened, press Ctrl-C once — the install already finished.
 - `installer/quickfix.sh`: create `~/Downloads` before rewriting `raptor-version.json` (same fresh-HOME bug as `install.sh`).
 - `scripts/check.sh`: now syntax-checks `installer/bootstrap.sh` too.
 - Initial clean-room rebuild: SwiftUI macOS app skeleton (editor, tabs, hub, settings, licensing).
@@ -25,6 +26,7 @@ All notable changes to this project will be documented in this file. Format foll
 ## [1.1.0] — 2026-10-25
 - One-liner install is now pinned to this tag in the README/installer docs, after GitHub's raw-file cache served the pre-fix bootstrap for minutes after the fix was pushed.
 - Bootstrap fix (see Unreleased → Fixed): no arrays, bash 3.2 safe.
+- Install command changed to download-then-run (`curl ... -o /tmp/raptor-bootstrap.sh && bash /tmp/raptor-bootstrap.sh`): the `curl ... | bash </dev/tty` form runs on macOS (zsh) but leaves bash waiting for terminal input after the script finishes, so the terminal looks stuck. Verified with pty tests: pipe form hangs, download form exits 0.
 
 ## [0.1.0] — 2026-10-25
 - Project scaffold created.

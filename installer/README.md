@@ -2,19 +2,20 @@
 
 ## One-liner (Mac)
 
-Recommended — download it, read it, then run it:
+Recommended — download it, read it, then run it (one line):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/v1.1.0/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh
-less /tmp/raptor-bootstrap.sh   # it is short — check what it does first
-bash /tmp/raptor-bootstrap.sh
+cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/v1.1.0/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh && bash /tmp/raptor-bootstrap.sh
 ```
 
-Or the single-command version, in the style of the original MacSploit line:
+Add `less /tmp/raptor-bootstrap.sh` between the download and the run if you
+want to read it first — it is short.
 
-```bash
-cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/v1.1.0/installer/bootstrap.sh | bash </dev/tty
-```
+Do NOT use the `curl ... | bash </dev/tty` form: on macOS (zsh) the script
+runs, but bash then stays waiting for terminal input after it finishes, so
+the terminal looks stuck. Press Ctrl-C once to get your prompt back if that
+happened — the install itself already finished. The download-then-run form
+above exits cleanly.
 
 The URL is pinned to v1.1.0 so it always fetches the exact tested file.
 (The `main` branch link can briefly serve a stale copy from GitHub's file

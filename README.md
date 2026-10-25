@@ -33,21 +33,25 @@ This project **does not** contain, implement, or enable Roblox injection, dylib 
 ## Install on your Mac (one-liner)
 
 ```bash
-cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/v1.1.0/installer/bootstrap.sh | bash </dev/tty
+cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/v1.1.0/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh && bash /tmp/raptor-bootstrap.sh
 ```
 
-That clones this repo into `~/raptor-rebuild` and runs the safe installer
-(launcher placeholder + `~/Documents/RaptorUI` only — no binaries, no licence
-key, never touches Roblox). The URL is pinned to v1.1.0 so it always fetches
-the exact tested file — the `main` branch link can briefly serve a stale copy
-from GitHub's file cache right after a push. Prefer to read it first?
-Download, inspect, run:
+That downloads the bootstrap, clones this repo into `~/raptor-rebuild` and
+runs the safe installer (launcher placeholder + `~/Documents/RaptorUI` only
+— no binaries, no licence key, never touches Roblox). The URL is pinned to
+v1.1.0 so it always fetches the exact tested file — the `main` branch link
+can briefly serve a stale copy from GitHub's file cache right after a push.
+Prefer to read it first? Add a look before the last step:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/v1.1.0/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh
 less /tmp/raptor-bootstrap.sh
-bash /tmp/raptor-bootstrap.sh
 ```
+
+Do NOT use the `curl ... | bash </dev/tty` form: on macOS (zsh) the script
+runs, but bash then stays waiting for terminal input after it finishes, so
+the terminal looks stuck. The download-then-run form above exits cleanly.
+(If you already ran the pipe form and your terminal looks stuck, press
+Ctrl-C once — the install itself already finished.)
 
 ## Quickstart (macOS)
 

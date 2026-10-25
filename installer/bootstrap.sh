@@ -13,13 +13,15 @@
 # runs an opaque binary, asks for a licence key, or touches your Roblox install.
 # Compare with the original MacSploit one-liner, which did all of that.
 #
-# Recommended (inspect before you run — this script is short, read it first):
-#   curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/main/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh
-#   less /tmp/raptor-bootstrap.sh
-#   bash /tmp/raptor-bootstrap.sh
+# Install it (download first, then run — do NOT pipe it into bash):
+#   cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/v1.1.0/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh && bash /tmp/raptor-bootstrap.sh
+# Inspect it first with: less /tmp/raptor-bootstrap.sh
 #
-# One-liner (same script, piped — prompts still work because they read /dev/tty):
-#   cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/main/installer/bootstrap.sh | bash </dev/tty
+# Why not `curl ... | bash </dev/tty` (the original MacSploit style)? On macOS
+# (zsh) the piped script runs, but bash then stays waiting for terminal input
+# after it finishes, so the terminal looks stuck. Download-then-run exits
+# cleanly. If you ran the pipe form and look stuck, press Ctrl-C once — the
+# install itself already finished.
 #
 # Options: --dry-run --force --help --dir <path> --ref <branch-or-tag>
 # Env overrides (forks / testing): RAPTOR_REPO_URL, RAPTOR_INSTALL_DIR,
