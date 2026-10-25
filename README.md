@@ -30,11 +30,27 @@ This project **does not** contain, implement, or enable Roblox injection, dylib 
 - Updater: version check against a configurable HTTPS endpoint, checksum field (placeholder — no binary is ever downloaded by this project).
 - Multi-instance / accounts: data model for multiple profiles and cookie-switcher UI state only; no Roblox account switching is performed.
 
+## Install on your Mac (one-liner)
+
+```bash
+cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/main/installer/bootstrap.sh | bash </dev/tty
+```
+
+That clones this repo into `~/raptor-rebuild` and runs the safe installer
+(launcher placeholder + `~/Documents/RaptorUI` only — no binaries, no licence
+key, never touches Roblox). Prefer to read it first? Download, inspect, run:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/main/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh
+less /tmp/raptor-bootstrap.sh
+bash /tmp/raptor-bootstrap.sh
+```
+
 ## Quickstart (macOS)
 
 ```bash
 # 1. Clone
-git clone <this-repo> raptor-rebuild && cd raptor-rebuild
+git clone https://github.com/Cherryo0/raptor-rebuild.git raptor-rebuild && cd raptor-rebuild
 
 # 2. Check the tree / run static checks
 ./scripts/check.sh

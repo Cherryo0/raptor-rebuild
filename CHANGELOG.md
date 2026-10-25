@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. Format foll
 ## [Unreleased]
 
 ### Added
+- One-liner Mac install: `installer/bootstrap.sh` — clones the public repo into `~/raptor-rebuild` and runs the safe installer. Usable as `cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/main/installer/bootstrap.sh | bash </dev/tty`, with `--dry-run` / `--force` / `--dir` / `--ref` options. Documented in `installer/README.md` and `docs/modules/02-installer.md`.
 - Initial clean-room rebuild: SwiftUI macOS app skeleton (editor, tabs, hub, settings, licensing).
 - Safe installer rewrite (`installer/install.sh`) and repair script (`installer/quickfix.sh`) — launcher placeholder + UI scripts dir only.
 - Python API client prototype (`api-client/`) with mocked pytest suite.

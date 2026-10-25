@@ -99,6 +99,7 @@ LAUNCHER
   log "Creating scripts directory: $SCRIPTS_DIR"
   dry mkdir -p "$SCRIPTS_DIR/AutoExecute" "$SCRIPTS_DIR/Dumped"
   if [ "$DRY_RUN" -eq 0 ]; then
+    mkdir -p "$HOME/Downloads"
     printf '{\n  "version": "%s",\n  "installed_at": "%s",\n  "launcher": "placeholder",\n  "notes": "Clean-room rebuild. No Roblox patching, no dylib, no injection."\n}\n' "$VERSION" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > "$HOME/Downloads/raptor-version.json"
   fi
   log "Done. Launcher placeholder installed; scripts dir ready at $SCRIPTS_DIR."

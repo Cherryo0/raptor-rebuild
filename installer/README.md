@@ -1,5 +1,33 @@
 # Installer
 
+## One-liner (Mac)
+
+Recommended — download it, read it, then run it:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/main/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh
+less /tmp/raptor-bootstrap.sh   # it is short — check what it does first
+bash /tmp/raptor-bootstrap.sh
+```
+
+Or the single-command version, in the style of the original MacSploit line:
+
+```bash
+cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/main/installer/bootstrap.sh | bash </dev/tty
+```
+
+What the one-liner does: clones the public repo into `~/raptor-rebuild`,
+then runs `installer/install.sh`. The `</dev/tty` part matters when piping —
+it lets the installer ask you its confirmation question on your terminal
+instead of reading from the pipe. Add `--dry-run` to preview, `--force` to
+skip prompts: `... | bash -s -- --dry-run </dev/tty`.
+
+Unlike the original line, this one never downloads a binary, never asks for
+a licence key, and never touches your Roblox install. See
+`docs/research/02-install-sh-analysis.md` for the comparison.
+
+## `install.sh`
+
 `install.sh` is a **safe rewrite** of the original v4.1 installer. It installs
 only a launcher placeholder (`/Applications/Raptor.app`) and the scripts
 directory (`~/Documents/RaptorUI/{AutoExecute,Dumped}`), plus a version file
