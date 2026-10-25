@@ -40,6 +40,7 @@ main() {
     fi
   done
   if [ "$DRY_RUN" -eq 0 ]; then
+    mkdir -p "$HOME/Downloads"
     printf '{\n  "version": "%s",\n  "repaired_at": "%s",\n  "launcher": "placeholder"\n}\n' "$VERSION" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > "$HOME/Downloads/raptor-version.json"
     log "Rewrote ~/Downloads/raptor-version.json"
   else

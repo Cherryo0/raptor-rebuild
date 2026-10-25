@@ -24,6 +24,11 @@
 # Options: --dry-run --force --help --dir <path> --ref <branch-or-tag>
 # Env overrides (forks / testing): RAPTOR_REPO_URL, RAPTOR_INSTALL_DIR,
 # RAPTOR_ALLOW_NON_DARWIN=1 (testing on Linux only — prints a warning).
+#
+# Compatibility: written for macOS /bin/bash 3.2 — no arrays, no associative
+# arrays, no mapfile, no [[ ]], no process substitution. (An empty-array
+# expansion under `set -u` broke v1 of this script on real Macs; see
+# run_installer().) Tested with bash -n + end-to-end dry-run/real runs.
 set -euo pipefail
 
 REPO_URL="${RAPTOR_REPO_URL:-https://github.com/Cherryo0/raptor-rebuild.git}"
@@ -87,21 +92,28 @@ fetch_repo() {
 }
 
 run_installer() {
+  # NOTE: no arrays here on purpose. macOS ships bash 3.2 (/bin/bash), and
+  # expanding an empty array under `set -u` ("${args[@]}") aborts there with
+  # "args[@]: unbound variable" — newer bash (4.4+) tolerates it, which is why
+  # this passed tests on Linux but failed on a real Mac. Flags are passed
+  # with explicit branches instead.
   local installer="$INSTALL_DIR/installer/install.sh"
-  local args=()
-  [ "$DRY_RUN" -eq 1 ] && args+=(--dry-run)
-  [ "$FORCE" -eq 1 ] && args+=(--force)
   if [ "$DRY_RUN" -eq 1 ]; then
-    log "Running the safe installer: $installer ${args[*]:-}"
-    dry "$installer" "${args[@]}"
+    log "Running the safe installer: $installer --dry-run"
+    dry "$installer" --dry-run
     return 0
   fi
   if [ ! -x "$installer" ]; then
     log "Installer not found at $installer — the clone may be incomplete. Aborting."
     exit 1
   fi
-  log "Running the safe installer: $installer ${args[*]:-}"
-  "$installer" "${args[@]}"
+  if [ "$FORCE" -eq 1 ]; then
+    log "Running the safe installer: $installer --force"
+    "$installer" --force
+  else
+    log "Running the safe installer: $installer"
+    "$installer"
+  fi
 }
 
 finish() {
