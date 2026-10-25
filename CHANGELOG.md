@@ -22,5 +22,9 @@ All notable changes to this project will be documented in this file. Format foll
 - Injection bridge is a stub only (`.notImplemented`); no dylib injection, codesign stripping, HWID spoofing, or Luau execution against Roblox.
 - Installer: HTTPS only, `--dry-run`, backup before replace, confirmation before deletes, no secrets in URLs.
 
+## [1.1.0] — 2026-10-25
+- One-liner install is now pinned to this tag in the README/installer docs, after GitHub's raw-file cache served the pre-fix bootstrap for minutes after the fix was pushed.
+- Bootstrap fix (see Unreleased → Fixed): no arrays, bash 3.2 safe.
+
 ## [0.1.0] — 2026-10-25
 - Project scaffold created.

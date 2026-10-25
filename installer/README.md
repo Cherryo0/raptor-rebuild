@@ -5,7 +5,7 @@
 Recommended — download it, read it, then run it:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/main/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh
+curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/v1.1.0/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh
 less /tmp/raptor-bootstrap.sh   # it is short — check what it does first
 bash /tmp/raptor-bootstrap.sh
 ```
@@ -13,8 +13,13 @@ bash /tmp/raptor-bootstrap.sh
 Or the single-command version, in the style of the original MacSploit line:
 
 ```bash
-cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/main/installer/bootstrap.sh | bash </dev/tty
+cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/v1.1.0/installer/bootstrap.sh | bash </dev/tty
 ```
+
+The URL is pinned to v1.1.0 so it always fetches the exact tested file.
+(The `main` branch link can briefly serve a stale copy from GitHub's file
+cache right after a push — that is what happened on 2026-10-25, when a
+just-fixed script was re-fetched as the old version.)
 
 What the one-liner does: clones the public repo into `~/raptor-rebuild`,
 then runs `installer/install.sh`. The `</dev/tty` part matters when piping —

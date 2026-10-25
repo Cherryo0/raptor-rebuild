@@ -33,15 +33,18 @@ This project **does not** contain, implement, or enable Roblox injection, dylib 
 ## Install on your Mac (one-liner)
 
 ```bash
-cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/main/installer/bootstrap.sh | bash </dev/tty
+cd ~/ && curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/v1.1.0/installer/bootstrap.sh | bash </dev/tty
 ```
 
 That clones this repo into `~/raptor-rebuild` and runs the safe installer
 (launcher placeholder + `~/Documents/RaptorUI` only — no binaries, no licence
-key, never touches Roblox). Prefer to read it first? Download, inspect, run:
+key, never touches Roblox). The URL is pinned to v1.1.0 so it always fetches
+the exact tested file — the `main` branch link can briefly serve a stale copy
+from GitHub's file cache right after a push. Prefer to read it first?
+Download, inspect, run:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/main/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh
+curl -fsSL https://raw.githubusercontent.com/Cherryo0/raptor-rebuild/v1.1.0/installer/bootstrap.sh -o /tmp/raptor-bootstrap.sh
 less /tmp/raptor-bootstrap.sh
 bash /tmp/raptor-bootstrap.sh
 ```
