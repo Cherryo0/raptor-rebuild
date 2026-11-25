@@ -13,7 +13,7 @@ Provide the macOS app shell: window, menus, toolbar, and the composition of edit
 Original is a macOS app (/Applications/MacSploit.app) with an editor, tab system, hub, settings and licence UI. Its internals were not inspected (no binary obtained).
 
 ## Clean-room design
-SwiftUI, macOS 13+, Xcode 15+, Swift 5.9. RaptorApp (@main) owns an AppState @StateObject; ContentView composes TabBarView + ScriptEditorView + optional ScriptHubView, with Settings/Licensing as sheets. Menu commands: New Tab (Cmd-T), Open (Cmd-O), Save (Cmd-S). No Xcode project file is checked in yet — create one in Xcode (bundle id dev.raptor.rebuild) and add App/ files.
+SwiftUI, macOS 13+, Xcode 15+, Swift 5.9. RaptorApp (@main) owns an AppState @StateObject; ContentView composes TabBarView + ScriptEditorView + optional ScriptHubView, with Settings/Licensing as sheets. Menu commands: New Tab (Cmd-T), Open (Cmd-O), Save (Cmd-S). Xcode project file `Raptor.xcodeproj` is now checked in (bundle id dev.raptor.rebuild, macOS 13+, shared Raptor scheme) — open it and press Cmd+R. It was hand-built and structure-checked on Linux (all 15 Swift files referenced, scheme target matches); it has NOT been compiled in Xcode yet.
 
 ## Public API / types
 ```
@@ -41,4 +41,4 @@ App never touches a Roblox process. No entitlements for injection. Sandbox-frien
 Manual UI walkthrough in Xcode; planned: snapshot tests, Swift unit tests for AppState tab operations.
 
 ## Open questions
-Xcode project file — check in a generated one or keep creation manual? App icon / branding? Minimum macOS version — 13 vs 14?
+Xcode project file — check in a generated one or keep creation manual? Minimum macOS version — 13 vs 14? App icon: added 2026-11-21 (`App/Assets.xcassets/AppIcon.appiconset`, lime "R" placeholder) — swap the artwork any time, the catalog structure stays.

@@ -3,7 +3,7 @@
 *.xcuserstate
 xcuserdata/
 DerivedData/
-*.xcodeproj/
+# Raptor.xcodeproj/ is intentionally tracked — open it and press Cmd+R.
 *.xcworkspace/
 build/
 *.app

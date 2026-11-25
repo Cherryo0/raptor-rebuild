@@ -1,0 +1,377 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08AE4FB8B1EB02DE8DE127DC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6D67E9A2F09AFBF1DADBE7 /* AppState.swift */; };
+		54FD0AD50DB9BC4D5DECAA90 /* ScriptFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEF4079B87985C20BA07735 /* ScriptFile.swift */; };
+		2AB763CD4F84764729144EB7 /* ScriptTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB447B964FFAC4BE3F257DD6 /* ScriptTab.swift */; };
+		A9F057BC6CEC1EBDFA56E4D3 /* RaptorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114CD7F157401F733B1D3E7 /* RaptorApp.swift */; };
+		06B089516DA2A1228E05B534 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E39F021C8DD94F7FBB8B8 /* ApiClient.swift */; };
+		A3A3290DDC454A66DE109476 /* InjectionBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADAB1E677AC4D0A39623F6E /* InjectionBridge.swift */; };
+		D795547A69569AB93A9BC146 /* LicensingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7A3FCF08A978BD44792825 /* LicensingService.swift */; };
+		DEB6A104EB4BF3A7FD76C89E /* ScriptStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3D51159CA219E0F0467D2C /* ScriptStore.swift */; };
+		4D09E2AD57859C98DE5B523D /* UpdaterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525C7F52DA1FE0BE50891B85 /* UpdaterService.swift */; };
+		35E7DFCCA8610DC4B715AD03 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5C6BA71835F40297805A3A /* ContentView.swift */; };
+		CB7AA9A332DD754DB199F7C8 /* LicensingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F62358D485FDDBBD424125 /* LicensingView.swift */; };
+		72CBE918716F9800961EB4DB /* ScriptEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78886401F6303CEAC2EFF13 /* ScriptEditorView.swift */; };
+		7D4738784F25E445A333489B /* ScriptHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879C692972BF9FA68EBD521E /* ScriptHubView.swift */; };
+		FC2F7070AA4AD8DAD0D6F5F8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4983C13EFF8750AB6315D4A9 /* SettingsView.swift */; };
+		2EF60A32B4062B1E045326EB /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038AD5533377525C3FE2E3C0 /* TabBarView.swift */; };
+		42B8D0D700ED80D9D7681119 /* hello.lua in Resources */ = {isa = PBXBuildFile; fileRef = FAB693FA5F6ABED0C601715B /* hello.lua */; };
+		FA7C2F9CC7C987D0DAF380B8 /* loop-demo.lua in Resources */ = {isa = PBXBuildFile; fileRef = F46213AD67CB512062E3CC7A /* loop-demo.lua */; };
+		6E7A801BBE4D4939AA228C94 /* table-demo.lua in Resources */ = {isa = PBXBuildFile; fileRef = BD822D0676F9A1403184A930 /* table-demo.lua */; };
+		505A1BD1599C49768C444F01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBAD0FAC785458D9568D8FF /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CA6D67E9A2F09AFBF1DADBE7 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		CBEF4079B87985C20BA07735 /* ScriptFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptFile.swift; sourceTree = "<group>"; };
+		FB447B964FFAC4BE3F257DD6 /* ScriptTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTab.swift; sourceTree = "<group>"; };
+		8114CD7F157401F733B1D3E7 /* RaptorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaptorApp.swift; sourceTree = "<group>"; };
+		387E39F021C8DD94F7FBB8B8 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		AADAB1E677AC4D0A39623F6E /* InjectionBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionBridge.swift; sourceTree = "<group>"; };
+		6E7A3FCF08A978BD44792825 /* LicensingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensingService.swift; sourceTree = "<group>"; };
+		2D3D51159CA219E0F0467D2C /* ScriptStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptStore.swift; sourceTree = "<group>"; };
+		525C7F52DA1FE0BE50891B85 /* UpdaterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterService.swift; sourceTree = "<group>"; };
+		9F5C6BA71835F40297805A3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C4F62358D485FDDBBD424125 /* LicensingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensingView.swift; sourceTree = "<group>"; };
+		A78886401F6303CEAC2EFF13 /* ScriptEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptEditorView.swift; sourceTree = "<group>"; };
+		879C692972BF9FA68EBD521E /* ScriptHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptHubView.swift; sourceTree = "<group>"; };
+		4983C13EFF8750AB6315D4A9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		038AD5533377525C3FE2E3C0 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		FAB693FA5F6ABED0C601715B /* hello.lua */ = {isa = PBXFileReference; lastKnownFileType = text; path = hello.lua; sourceTree = "<group>"; };
+		F46213AD67CB512062E3CC7A /* loop-demo.lua */ = {isa = PBXFileReference; lastKnownFileType = text; path = loop-demo.lua; sourceTree = "<group>"; };
+		BD822D0676F9A1403184A930 /* table-demo.lua */ = {isa = PBXFileReference; lastKnownFileType = text; path = table-demo.lua; sourceTree = "<group>"; };
+		CEBAD0FAC785458D9568D8FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		20F33F4BF04BC7C61EF4BCC3 /* Raptor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raptor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		804DB52E2955449D2F091C7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		518DA81DB9B99529C0C0AEBE = {
+			isa = PBXGroup;
+			children = (
+				D1D0524B025E57AFFF263442 /* App */,
+				2F3A6B1E78F896718625FF06 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F3A6B1E78F896718625FF06 = {
+			isa = PBXGroup;
+			children = (
+				20F33F4BF04BC7C61EF4BCC3 /* Raptor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D1D0524B025E57AFFF263442 = {
+			isa = PBXGroup;
+			children = (
+				CA6D67E9A2F09AFBF1DADBE7 /* AppState.swift */,
+				8114CD7F157401F733B1D3E7 /* RaptorApp.swift */,
+				CEBAD0FAC785458D9568D8FF /* Assets.xcassets */,
+				53F09D9D59007F5B62A87D2D /* Models */,
+				25A3EDEFD61D3B1ED467ECDF /* Services */,
+				99D45A13655825DDF9DB3FC4 /* Views */,
+				9C8A07829418DD83A522CF81 /* Resources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		53F09D9D59007F5B62A87D2D = {
+			isa = PBXGroup;
+			children = (
+				CBEF4079B87985C20BA07735 /* ScriptFile.swift */,
+				FB447B964FFAC4BE3F257DD6 /* ScriptTab.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		25A3EDEFD61D3B1ED467ECDF = {
+			isa = PBXGroup;
+			children = (
+				387E39F021C8DD94F7FBB8B8 /* ApiClient.swift */,
+				AADAB1E677AC4D0A39623F6E /* InjectionBridge.swift */,
+				6E7A3FCF08A978BD44792825 /* LicensingService.swift */,
+				2D3D51159CA219E0F0467D2C /* ScriptStore.swift */,
+				525C7F52DA1FE0BE50891B85 /* UpdaterService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		99D45A13655825DDF9DB3FC4 = {
+			isa = PBXGroup;
+			children = (
+				9F5C6BA71835F40297805A3A /* ContentView.swift */,
+				C4F62358D485FDDBBD424125 /* LicensingView.swift */,
+				A78886401F6303CEAC2EFF13 /* ScriptEditorView.swift */,
+				879C692972BF9FA68EBD521E /* ScriptHubView.swift */,
+				4983C13EFF8750AB6315D4A9 /* SettingsView.swift */,
+				038AD5533377525C3FE2E3C0 /* TabBarView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9C8A07829418DD83A522CF81 = {
+			isa = PBXGroup;
+			children = (
+				FAB693FA5F6ABED0C601715B /* hello.lua */,
+				F46213AD67CB512062E3CC7A /* loop-demo.lua */,
+				BD822D0676F9A1403184A930 /* table-demo.lua */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3066D5D0710FB5DE0C350BBC /* Raptor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2F62AAE534BA46EC59716F3 /* Build configuration list for PBXNativeTarget "Raptor" */;
+			buildPhases = (
+				D8E2B34C6803A5DAEDA2CB7E /* Sources */,
+				804DB52E2955449D2F091C7E /* Frameworks */,
+				00513FA0CE487262D0410603 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Raptor;
+			productName = Raptor;
+			productReference = 20F33F4BF04BC7C61EF4BCC3 /* Raptor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DF7C21BB10E09658BFB7EEB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					3066D5D0710FB5DE0C350BBC = {
+						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
+					};
+				};
+			};
+			buildConfigurationList = 7EF2517A8FE63F4681EC5EEA /* Build configuration list for PBXProject "Raptor" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 518DA81DB9B99529C0C0AEBE;
+			productRefGroup = 2F3A6B1E78F896718625FF06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3066D5D0710FB5DE0C350BBC /* Raptor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00513FA0CE487262D0410603 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42B8D0D700ED80D9D7681119 /* hello.lua in Resources */,
+				FA7C2F9CC7C987D0DAF380B8 /* loop-demo.lua in Resources */,
+				6E7A801BBE4D4939AA228C94 /* table-demo.lua in Resources */,
+				505A1BD1599C49768C444F01 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8E2B34C6803A5DAEDA2CB7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08AE4FB8B1EB02DE8DE127DC /* AppState.swift in Sources */,
+				54FD0AD50DB9BC4D5DECAA90 /* ScriptFile.swift in Sources */,
+				2AB763CD4F84764729144EB7 /* ScriptTab.swift in Sources */,
+				A9F057BC6CEC1EBDFA56E4D3 /* RaptorApp.swift in Sources */,
+				06B089516DA2A1228E05B534 /* ApiClient.swift in Sources */,
+				A3A3290DDC454A66DE109476 /* InjectionBridge.swift in Sources */,
+				D795547A69569AB93A9BC146 /* LicensingService.swift in Sources */,
+				DEB6A104EB4BF3A7FD76C89E /* ScriptStore.swift in Sources */,
+				4D09E2AD57859C98DE5B523D /* UpdaterService.swift in Sources */,
+				35E7DFCCA8610DC4B715AD03 /* ContentView.swift in Sources */,
+				CB7AA9A332DD754DB199F7C8 /* LicensingView.swift in Sources */,
+				72CBE918716F9800961EB4DB /* ScriptEditorView.swift in Sources */,
+				7D4738784F25E445A333489B /* ScriptHubView.swift in Sources */,
+				FC2F7070AA4AD8DAD0D6F5F8 /* SettingsView.swift in Sources */,
+				2EF60A32B4062B1E045326EB /* TabBarView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3A26A5C6FA6C17482028664D /* Project Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)");
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFS = en;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		58E28BA7580D40611FC64536 /* Project Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFS = en;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		BF247F1D3E552C27BA752271 /* Target Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Raptor;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks");
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.raptor.rebuild;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_EMBED_LIBRARIES_WITH_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2D84419BA840FD138377F6AF /* Target Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Raptor;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks");
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.raptor.rebuild;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_EMBED_LIBRARIES_WITH_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7EF2517A8FE63F4681EC5EEA /* Build configuration list for PBXProject "Raptor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A26A5C6FA6C17482028664D /* Debug */,
+				58E28BA7580D40611FC64536 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2F62AAE534BA46EC59716F3 /* Build configuration list for PBXNativeTarget "Raptor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF247F1D3E552C27BA752271 /* Debug */,
+				2D84419BA840FD138377F6AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DF7C21BB10E09658BFB7EEB2 /* Project object */;
+}

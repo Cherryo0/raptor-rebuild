@@ -77,7 +77,7 @@ python3 -m pytest tests/ -q
 RAPTOR_API_BASE=https://api.example.invalid python3 raptor_api.py version
 ```
 
-Open `App/` in Xcode 15+ (macOS 13+ target) to build the SwiftUI app. There is no Xcode project file checked in yet — create one with Xcode (File → New → Project → App, SwiftUI, bundle id `dev.raptor.rebuild`) and add the files under `App/`. See [docs/modules/05-launcher-app.md](docs/modules/05-launcher-app.md).
+Open `Raptor.xcodeproj` in Xcode 15+ (macOS 13+ target, bundle id `dev.raptor.rebuild`) and press Cmd+R — the project file is checked in, with all 15 Swift files in `App/` and the 3 sample `.lua` files as resources, plus a shared `Raptor` scheme. First build: pick your Apple ID team under Signing & Capabilities if Xcode asks (automatic signing). The Swift code has not been compiled in Xcode yet — if the first build shows errors, paste them back and they will be fixed. See [docs/modules/05-launcher-app.md](docs/modules/05-launcher-app.md).
 
 ## Repository layout
 
