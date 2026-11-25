@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Raptor Rebuild — SAFE installer (clean-room rewrite)
-# Installs ONLY: a launcher placeholder + ~/Documents/RaptorUI scripts dir.
+# Installs ONLY: a launcher placeholder (+ app icon) + ~/Documents/RaptorUI scripts dir.
 # It NEVER patches Roblox, downloads a dylib, strips a code signature,
 # runs an opaque binary, or executes anything downloaded.
 # Usage: ./installer/install.sh [--dry-run] [--help] [--force]
@@ -10,6 +10,9 @@ VERSION="0.1.0"
 APP_NAME="Raptor.app"
 INSTALL_DIR="/Applications"
 SCRIPTS_DIR="$HOME/Documents/RaptorUI"
+# App icon, built by scripts/make-appicon.py from the asset catalog.
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+ICON_SRC="$SCRIPT_DIR/../App/Resources/Raptor.icns"
 DRY_RUN=0
 FORCE=0
 
@@ -22,7 +25,7 @@ Usage: install.sh [--dry-run] [--help] [--force]
   --dry-run   Print every action without changing anything.
   --force     Skip the confirmation prompt (still backs up first).
   --help      Show this help.
-This installer only creates a launcher placeholder and ~/Documents/RaptorUI.
+This installer only creates a launcher placeholder (with the app icon) and ~/Documents/RaptorUI.
 It never downloads a binary, patches Roblox, or strips a signature.
 USAGE
 }
@@ -85,6 +88,51 @@ install_launcher_only() {
   log "Creating launcher placeholder at $target (no binary is downloaded)."
   dry mkdir -p "$target/Contents/MacOS"
   dry mkdir -p "$target/Contents/Resources"
+  # App icon: the Xbox-vibe Raptor.icns (built by scripts/make-appicon.py).
+  # Without an Info.plist + CFBundleIconFile, Finder shows the generic icon,
+  # so the placeholder bundle gets both here.
+  if [ -f "$ICON_SRC" ]; then
+    if [ "$DRY_RUN" -eq 0 ]; then
+      cp "$ICON_SRC" "$target/Contents/Resources/Raptor.icns"
+      cat > "$target/Contents/Info.plist" <<PLIST
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleExecutable</key>
+	<string>Raptor</string>
+	<key>CFBundleIconFile</key>
+	<string>Raptor</string>
+	<key>CFBundleIconName</key>
+	<string>Raptor</string>
+	<key>CFBundleIdentifier</key>
+	<string>dev.raptor.rebuild</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Raptor</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$VERSION</string>
+	<key>CFBundleVersion</key>
+	<string>$VERSION</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>13.0</string>
+</dict>
+</plist>
+PLIST
+      # Nudge Finder to pick up the new icon.
+      touch "$target"
+      log "App icon installed (Raptor.icns + Info.plist)."
+    else
+      log "[dry-run] would copy $ICON_SRC and write Info.plist into $target/Contents"
+    fi
+  else
+    log "WARNING: $ICON_SRC not found — installing without an app icon."
+  fi
   # Placeholder launcher: a script that explains this is a clean-room shell.
   if [ "$DRY_RUN" -eq 0 ]; then
     cat > "$target/Contents/MacOS/Raptor" <<'LAUNCHER'

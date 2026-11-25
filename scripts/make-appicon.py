@@ -10,11 +10,14 @@ Re-run any time the design changes:
 Then run `bash scripts/check.sh` to verify the catalog.
 """
 import os
+import struct
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 SIZE = 1024
 OUT = os.path.join(os.path.dirname(__file__), "..", "App", "Assets.xcassets",
                    "AppIcon.appiconset")
+ICNS_OUT = os.path.join(os.path.dirname(__file__), "..", "App", "Resources",
+                        "Raptor.icns")
 
 BG = (11, 11, 13)          # near-black
 LIME = (198, 242, 78)      # #C6F24E — Raptor green
@@ -44,6 +47,35 @@ def vertical_gradient(size, top, mid, bottom):
             a, b, u = mid, bottom, (t - 0.5) / 0.5
         px[0, y] = tuple(round(a[i] + (b[i] - a[i]) * u) for i in range(3))
     return img.resize((size, size))
+
+
+def build_icns(master):
+    """Pack the icon PNGs into a macOS .icns (PNG elements only).
+
+    iconutil is macOS-only, so this builds the container by hand:
+    'icns' magic + total size, then one element per size — 4-char type,
+    4-byte big-endian length (header included), raw PNG bytes.
+    Types: icp4=16, icp5=32, icp6=64, ic07=128, ic08=256, ic09=512,
+    ic10=1024. The installer copies this into the placeholder app
+    bundle so /Applications/Raptor.app shows the icon without an
+    Xcode build.
+    """
+    elements = [
+        ("icp4", 16), ("icp5", 32), ("icp6", 64), ("ic07", 128),
+        ("ic08", 256), ("ic09", 512), ("ic10", 1024),
+    ]
+    body = b""
+    for ostype, px in elements:
+        png = master.resize((px, px), Image.LANCZOS)
+        buf = __import__("io").BytesIO()
+        png.save(buf, format="PNG")
+        data = buf.getvalue()
+        body += ostype.encode("ascii") + struct.pack(">I", len(data) + 8) + data
+    icns = b"icns" + struct.pack(">I", len(body) + 8) + body
+    os.makedirs(os.path.dirname(ICNS_OUT), exist_ok=True)
+    with open(ICNS_OUT, "wb") as f:
+        f.write(icns)
+    print(f"wrote {ICNS_OUT} ({len(icns)} bytes)")
 
 
 def main():
@@ -98,6 +130,7 @@ def main():
     for name, px in SIZES:
         base.resize((px, px), Image.LANCZOS).save(os.path.join(OUT, name))
     print(f"wrote master + {len(SIZES)} sizes to {OUT}")
+    build_icns(base)
 
 
 if __name__ == "__main__":

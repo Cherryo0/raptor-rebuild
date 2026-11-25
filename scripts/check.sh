@@ -37,5 +37,21 @@ if [ -f Raptor.xcodeproj/project.pbxproj ]; then
   if ! grep -q "ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon" Raptor.xcodeproj/project.pbxproj; then echo "APPICON_NAME not set in project.pbxproj"; exit 1; fi
   python3 -c "import json; c=json.load(open('App/Assets.xcassets/AppIcon.appiconset/Contents.json')); assert len(c['images'])==10, len(c['images'])"
   echo "app icon OK"
+  echo "== installer icon (.icns) =="
+  if [ ! -f App/Resources/Raptor.icns ]; then echo "missing App/Resources/Raptor.icns (run scripts/make-appicon.py)"; exit 1; fi
+  python3 -c "
+import struct
+d = open('App/Resources/Raptor.icns','rb').read()
+assert d[:4] == b'icns', 'bad icns magic'
+assert struct.unpack('>I', d[4:8])[0] == len(d), 'icns size mismatch'
+expect = {'icp4','icp5','icp6','ic07','ic08','ic09','ic10'}
+off, seen = 8, set()
+while off < len(d):
+    t = d[off:off+4].decode(); ln = struct.unpack('>I', d[off+4:off+8])[0]
+    assert d[off+8:off+16] == b'\x89PNG\r\n\x1a\n', t + ' element is not PNG'
+    seen.add(t); off += ln
+assert seen == expect, 'icns missing elements: ' + str(expect - seen)
+"
+  echo "installer icon OK"
 fi
 echo "All checks passed."
